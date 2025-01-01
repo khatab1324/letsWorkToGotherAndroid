@@ -1,45 +1,4 @@
 package com.example.introtoandroid;
-//
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.os.Bundle;
-//import android.view.View;
-//import android.widget.AdapterView;
-//import android.widget.ArrayAdapter;
-//import android.widget.Button;
-//import android.widget.CheckBox;
-//import android.widget.EditText;
-//import android.widget.ListView;
-//import android.widget.RadioGroup;
-//import android.widget.Toast;
-//
-//public class MainActivity extends AppCompatActivity {
-//    private String[] names = {"khattab", "khaled", "marwan"};
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        ListView listView = findViewById(R.id.city_name);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(getBaseContext(), "you are in the city number :" + i, Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        ListView listViewFriend = findViewById(R.id.friends_name);
-//        ArrayAdapter namesAdapter= new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,names);
-//        listViewFriend.setAdapter(namesAdapter);
-//    }
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//    }
-//}
-//package com.example.trafficsign;
-
 
 
 import android.content.Context;
@@ -59,8 +18,20 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.introtoandroid.Model.DatabaseSeeder;
+import com.example.introtoandroid.Model.Entity.Task;
+import com.example.introtoandroid.Model.Entity.Team;
+import com.example.introtoandroid.Model.Entity.User;
+import com.example.introtoandroid.Model.TaskRepo;
+import com.example.introtoandroid.Model.TeamRepo;
+import com.example.introtoandroid.Model.UserCallback;
+import com.example.introtoandroid.Model.UserRepo;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -70,86 +41,41 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         database = FirebaseDatabase.getInstance().getReference();
-        database.child("message").setValue("Hello, Firebase!")
-                .addOnSuccessListener(aVoid -> {
-                    Log.d("Firebase", "Data written successfully.");
-                })
-                .addOnFailureListener(e -> {
-                    Log.e("Firebase", "Failed to write data.", e);
-                });
+//        database.child("message").setValue("Hello, Firebase!").addOnSuccessListener(aVoid -> {
+//            Log.d("Firebase", "Data written successfully.");
+//        }).addOnFailureListener(e -> {
+//            Log.e("Firebase", "Failed to write data.", e);
+//        });
+//        User newUser = new User("123", "khattab", "123", new ArrayList<>());
+//        UserRepo userRepo = new UserRepo();
+//        userRepo.createUser(newUser);
+//        User updateUser = new User("123", "jmail", "12334", new ArrayList<>());
+
+//        userRepo.updateUser("123",updateUser);
+//        userRepo.getUser(newUser.getId(), new UserCallback() {
+//            @Override
+//            public void onCallback(User user) {
+//                if (user != null) {
+//                    Log.d("UserRepo", "Retrieved User: " + user.getUsername());
+//                    Log.d("UserRepo", "Retrieved User: " + user.getPassword());
+//                    Log.d("UserRepo", "Retrieved User: " + user.getId());
+//                } else {
+//                    Log.d("UserRepo", "User not found.");
+//                }
+//            }
+//            @Override
+//            public void onError(String error) {
+//                Log.e("UserRepo", "Error retrieving user: " + error);
+//            }
+//        });
+        DatabaseSeeder seeder = new DatabaseSeeder();
+        seeder.seedDatabase(task -> {
+            if (task.isSuccessful()) {
+                Log.d("Seeder", "Database seeded successfully");
+            } else {
+                Log.e("Seeder", "Error seeding database", task.getException());
+            }
+        });
         super.onCreate(savedInstanceState);
-
-
-
-        // Create a custom view to draw the traffic light
-
-        TrafficLightView trafficLightView = new TrafficLightView(this);
-
-        setContentView(trafficLightView);
-
-    }
-
-
-
-    private class TrafficLightView extends View {
-
-        private Paint paint;
-
-
-
-        public TrafficLightView(Context context) {
-
-            super(context);
-
-            paint = new Paint();
-
-        }
-
-
-
-        @Override
-
-        protected void onDraw(Canvas canvas) {
-
-            super.onDraw(canvas);
-            canvas.drawColor(Color.WHITE);
-
-            paint.setColor(Color.BLACK);
-
-            int rectLeft = getWidth() / 2 - 150;
-
-            int rectTop = 200;
-
-            int rectRight = getWidth() / 2 + 150;
-
-            int rectBottom = 1000;
-
-            canvas.drawRect(rectLeft, rectTop, rectRight, rectBottom, paint);
-
-
-            paint.setColor(Color.RED);
-
-            canvas.drawCircle(getWidth() / 2, rectTop + 150, 100, paint);
-
-            paint.setColor(Color.YELLOW);
-
-            canvas.drawCircle(getWidth() / 2, rectTop + 400, 100, paint);
-
-
-            paint.setColor(Color.GREEN);
-
-            canvas.drawCircle(getWidth() / 2, rectTop + 650, 100, paint);
-
-            paint.setColor(Color.BLACK);
-             rectLeft = getWidth() / 2 - 50;
-
-             rectTop = 1000;
-
-             rectRight = getWidth() / 2 + 50;
-
-             rectBottom = 1300;
-            canvas.drawRect(rectLeft, rectTop, rectRight, rectBottom, paint);
-        }
-
     }
 }
