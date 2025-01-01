@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1033727680314",
+    "firebase_url": "https://letsworktogother-default-rtdb.firebaseio.com",
+    "project_id": "letsworktogother",
+    "storage_bucket": "letsworktogother.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033727680314:android:0a307004e1c8cd5012fa03",
+        "android_client_info": {
+          "package_name": "com.example.introtoandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmEW587Ge6HBHGpfP7TkNjIqj-tVrXvd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033727680314:android:3d87a5499bb67ccd12fa03",
+        "android_client_info": {
+          "package_name": "com.example.letsworktogother"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmEW587Ge6HBHGpfP7TkNjIqj-tVrXvd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

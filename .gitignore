@@ -84,5 +84,3 @@ proguard-project.txt
 obj/
 libs/
 
-# Google Services
-google-services.json
