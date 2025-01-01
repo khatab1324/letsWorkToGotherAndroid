@@ -1,0 +1,88 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+# Gradle files
+.gradle/
+build/
+*.iml
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log files
+*.log
+
+# Android Studio specific files
+/.idea/
+/*.ipr
+/*.iws
+/*.bak
+/*.swp
+
+# Keystore files
+*.jks
+*.keystore
+
+# External native build folders
+.cxx/
+.externalNativeBuild/
+
+# IntelliJ IDEA generated files
+.idea/
+*.ipr
+*.iws
+.idea/caches
+.idea/libraries
+.idea/shelf
+.idea/workspace.xml
+.idea/modules.xml
+
+# Crashlytics and Firebase specific
+crashlytics.properties
+fabric.properties
+
+# Android release files
+*.apk
+*.aab
+
+# MacOS-specific files
+.DS_Store
+
+# Gradle Wrapper
+/gradle-wrapper.jar
+/gradle-wrapper.properties
+
+# Other
+*.class
+*.jar
+*.war
+*.ear
+
+# Generated files
+bin/
+gen/
+out/
+
+
+# ProGuard
+proguard/
+proguard-project.txt
+
+# NDK
+obj/
+libs/
+
+# Google Services
+google-services.json

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">introToAndroid</string>
+    <string name="cites">choose city</string>
+    <string-array name="city_list">
+        <item>amman</item>
+        <item>irbad</item>
+        <item>aqaba</item>
+    </string-array>
+    <string-array name="chat_room">
+        <item>ahmad</item>
+        <item>monad</item>
+        <item>khaled</item>
+    </string-array>
+</resources>
